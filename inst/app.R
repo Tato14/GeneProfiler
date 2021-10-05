@@ -235,7 +235,7 @@ shiny::shinyApp(
     Connect.DB <- eventReactive(input$db_load, {
 
         #Reconnect other DB
-        Connect_DB("sql server", input$ip, input$user, input$pw, input$schema)
+        Connect_DB("sql server", input$ip, input$user, input$pw) #, input$schema
     })
     Update.UI <- eventReactive(input$db_load, {
         sql <- readSql("extdata/Sequence_alteration.sql")
