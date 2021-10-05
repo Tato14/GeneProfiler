@@ -9,6 +9,6 @@
 
 sql_query <- function(sql,input){
     sql <- SqlRender::renderSql(sql, Cohort_table=input$Cohort_table)$sql
-    sql <- SqlRender::translateSql(sql, targetDialect=connectionDetails$dbms, schema=input$schema)$sql
+    sql <- SqlRender::translateSql(sql, targetDialect=connectionDetails$dbms)$sql
     return(DatabaseConnector::querySql(connection, sql))
 }
