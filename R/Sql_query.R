@@ -8,7 +8,7 @@
 #' @example sql_query(sql)
 
 sql_query <- function(sql,input){
-    sql <- SqlRender::renderSql(sql, schema=input$schema, Cohort_table=input$Cohort_table)$sql
-    sql <- SqlRender::translateSql(sql, targetDialect=connectionDetails$dbms)$sql
+    sql <- SqlRender::renderSql(sql, Cohort_table=input$Cohort_table)$sql
+    sql <- SqlRender::translateSql(sql, targetDialect=connectionDetails$dbms, schema=input$schema)$sql
     return(DatabaseConnector::querySql(connection, sql))
 }
