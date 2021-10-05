@@ -11,7 +11,7 @@
 #' @param pw The password for that user.
 #' @param schema The name of the schema to connect to.
 #' @export
-#' @example Connect_DB(server_name, ip, db_id, pwd, schema_name))
+#' @example Connect_DB(server_name, ip, db_id, pwd))
 
 Connect_DB <- function(server,ip,id,pw){ #schema
     #Reconnect other DB
