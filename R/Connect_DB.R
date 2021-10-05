@@ -13,14 +13,14 @@
 #' @export
 #' @example Connect_DB(server_name, ip, db_id, pwd, schema_name))
 
-Connect_DB <- function(server,ip,id,pw,schema){
+Connect_DB <- function(server,ip,id,pw){ #schema
     #Reconnect other DB
     try(DatabaseConnector::disconnect(connection),silent = T)
     connectionDetails <<- DatabaseConnector::createConnectionDetails(dbms=server,
                                                                      server=ip,
                                                                      user=id,
-                                                                     password=pw,
-                                                                     schema=schema)
+                                                                     password=pw)#,
+                                                                     #schema=schema)
     #fix
     tryCatch({
         connection <<- DatabaseConnector::connect(connectionDetails)
